@@ -29,9 +29,7 @@ images = pipe(prompt= num_variations * [prompt],
               width = dimensions[1],
               generator = [torch.Generator('cuda').manual_seed(i) for i in random_seeds]
              ).images
-i = 0
-for img in images:
-    name = f"test-{i}.jpg"
-    images[i].save(name)
-    i+=1
 
+for i, img in enumerate(images):
+  filename = f"test-{i}.jpg"
+  img.save(filename)
